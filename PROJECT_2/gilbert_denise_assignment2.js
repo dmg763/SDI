@@ -6,19 +6,24 @@
 
 // Global Variables
 
-var spendingBudget = 200;
+var giftBudget = 200;
+var foodBudget = 100;
+var christmasCards = 50;
 var holiday = "Christmas";
-var peopleToBuyFor = [
+var guestNames = [
     "Jamie",
+    "John",
     "Stephen",
+    "Cassie",
     "David",
     "Darlene",
+    "Jeff",
     "Damian",
     "Scottie Jr."
 ];
 var daysLeft = 85;
-var invitees = 8;
-var confirmedGuests = 6;
+var invitees = 9;
+var confirmedGuests = 7;
 var willHost;
 
 // Procedure
@@ -33,7 +38,7 @@ var startShopping = function (daysLeft) {
 // Boolean Function
 
 var confirmedWithFamily = function (invitees, confirmedGuests) {
-    if ((invitees > 2) && (confirmedGuests >= 4)) {
+    if ((invitees > 2) && (confirmedGuests >= 4)) { // Comparison
 	    willHost = true;
 	    console.log("I have confirmed with my family and I will be hosting Christmas this year.");
     } else {
@@ -45,7 +50,14 @@ var confirmedWithFamily = function (invitees, confirmedGuests) {
 
 // Number Function
 
-
+var sendChristmasCards = function (christmasCards) {
+    var cardsPrepared = 10;
+    while (christmasCards > 0) {
+	    christmasCards = (christmasCards - cardsPrepared);
+	    console.log("I have " + christmasCards + " Christmas cards remaining to sign and stamp.");
+    };
+    return christmasCards;
+};
 
 
 
@@ -53,4 +65,5 @@ var confirmedWithFamily = function (invitees, confirmedGuests) {
 
 startShopping(daysLeft);
 confirmedWithFamily(invitees, confirmedGuests);
-console.log(willHost);
+console.log("I enjoy the tradition of sending out Christmas cards.");
+sendChristmasCards(christmasCards);
