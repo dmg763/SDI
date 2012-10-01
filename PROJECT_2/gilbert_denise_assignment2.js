@@ -2,47 +2,55 @@
  * SDI 1210
  * October 6, 2012
  * Project 2
- * Continuation of Working on Son's Company Website */
+ * Christmas Preparation */
 
 // Global Variables
 
-var companyName = "Bulldog Construction";
-var numberFonts = 3;
-var fontNames = ["Arial", "Arial Black", "Cooper Black"];
-var detailsConfirmed = false;
-var fontsNeeded;
+var spendingBudget = 200;
+var holiday = "Christmas";
+var peopleToBuyFor = [
+    "Jamie",
+    "Stephen",
+    "David",
+    "Darlene",
+    "Damian",
+    "Scottie Jr."
+];
+var daysLeft = 85;
+var invitees = 8;
+var confirmedGuests = 6;
+var willHost;
 
 // Procedure
-
-var beginProject = function (detailsConfirmed) {
-    if (detailsConfirmed === true) {
-	    console.log("I have collected all the necessary details to begin coding Stephen's Web site.");
+var startShopping = function (daysLeft) {
+    if (daysLeft <= 85) {
+	    console.log("Christmas is right around the corner.  I need to start preparing for the holiday.");
     } else {
-	    console.log("I need to gather more details to being coding Stephen's Web site.");
+	    console.log("I still have time to prepare for the Christmas holiday.");
     };
 };
 
 // Boolean Function
 
-var correctFonts = function (fontNames, numberFonts) {
-    var fontsNeeded;
-    if (fontNames.length === numberFonts) { // Comparison
-	    fontsNeeded = true;
-	    console.log("Stephen has supplied all of the fonts he would like to use for his Web site.");
+var confirmedWithFamily = function (invitees, confirmedGuests) {
+    if ((invitees > 2) && (confirmedGuests >= 4)) {
+	    willHost = true;
+	    console.log("I have confirmed with my family and I will be hosting Christmas this year.");
     } else {
-	    fontsNeeded = false;
-	    console.log("Stephen needs to supply additional fonts he would like to use for his Web site.");
+	    willHost = false;
+	    console.log("I will not be hosting Christmas this year.");
     };
-    return (fontsNeeded);
+    return willHost;
 };
 
 // Number Function
 
-// String Function
 
-// Array Function
 
-// Returned Values Into Console.log Output
 
-beginProject(detailsConfirmed);
-correctFonts(fontNames, numberFonts);
+
+// Output Functions
+
+startShopping(daysLeft);
+confirmedWithFamily(invitees, confirmedGuests);
+console.log(willHost);
