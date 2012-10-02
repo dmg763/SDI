@@ -8,8 +8,6 @@
 
 var giftBudget = 200;
 var foodBudget = 100;
-var christmasCards = 50;
-var holiday = "Christmas";
 var guestNames = [
     "Jamie",
     "John",
@@ -22,8 +20,6 @@ var guestNames = [
     "Scottie Jr."
 ];
 var daysLeft = 85;
-var invitees = 9;
-var confirmedGuests = 7;
 var willHost;
 
 // Procedure
@@ -37,33 +33,41 @@ var startShopping = function (daysLeft) {
 
 // Boolean Function
 
-var confirmedWithFamily = function (invitees, confirmedGuests) {
+var confirmedWithFamily = function (invitees, confirmedGuests) {  // Two Arguments
     if ((invitees > 2) && (confirmedGuests >= 4)) { // Comparison
 	    willHost = true;
-	    console.log("I have confirmed with my family and I will be hosting Christmas this year.");
+	    console.log("I have confirmed with my family and I will be hosting Christmas this year.");  // Output If True
     } else {
 	    willHost = false;
-	    console.log("I will not be hosting Christmas this year.");
+	    console.log("I will not be hosting Christmas this year.");  // Output If False
     };
     return willHost;
 };
 
 // Number Function
 
-var sendChristmasCards = function (christmasCards) {
-    var cardsPrepared = 10;
-    while (christmasCards > 0) {
-	    christmasCards = (christmasCards - cardsPrepared);
-	    console.log("I have " + christmasCards + " Christmas cards remaining to sign and stamp.");
+var sendChristmasCards = function (christmasCards) {  // Number Argument
+    var cardsPrepared = 10;  // Local Variables
+    while (christmasCards > 0) {  // While Loop
+	    christmasCards = (christmasCards - cardsPrepared);  // Math
+	    console.log("I have " + christmasCards + " Christmas cards remaining to sign and stamp.");  // Output
     };
-    return christmasCards;
+    return christmasCards;  // Return Number
 };
 
+// String Function
 
+// Array Function
+
+var grabBag = function (giftBudget, guestNames) {  // Number and Array Argument
+    var childGuests = 2;  // Local Variables
+    for (var i = 0; guestNames.length > 0; i--) {  // For Loop
+    };
+};
 
 // Output Functions
 
 startShopping(daysLeft);
-confirmedWithFamily(invitees, confirmedGuests);
+confirmedWithFamily(9, 7);
 console.log("I enjoy the tradition of sending out Christmas cards.");
-sendChristmasCards(christmasCards);
+sendChristmasCards(50);
