@@ -6,8 +6,6 @@
 
 // Global Variables
 
-var giftBudget = 200;
-var foodBudget = 100;
 var guestNames = [
     "Jamie",
     "John",
@@ -59,10 +57,20 @@ var sendChristmasCards = function (christmasCards) {  // Number Argument
 
 // Array Function
 
-var grabBag = function (giftBudget, guestNames) {  // Number and Array Argument
-    var childGuests = 2;  // Local Variables
-    for (var i = 0; guestNames.length > 0; i--) {  // For Loop
+var grabBag = function (giftBudget, guestNames) {
+    if ((giftBudget <= 200) || (guestNames.length >= 6)) {
+	    console.log("My budget is rather limited this year.  We are going to do a grab bag for the adults.");
+	    console.log("The adults will pull a grab bag name from a hat.");
+    } else {
+	    console.log("My budget is looking good.  I may even be able to do a few little extras this year.");
     };
+    for (var i = 0; i < guestNames.length; i++) {
+	if(guestNames[i] === "Damian") {
+            guestNames.splice(i, 1);
+            break; };
+	    console.log(guestNames[i] + " has pulled a grab bag name.");
+};
+    return guestNames;
 };
 
 // Output Functions
@@ -71,3 +79,5 @@ startShopping(daysLeft);
 confirmedWithFamily(9, 7);
 console.log("I enjoy the tradition of sending out Christmas cards.");
 sendChristmasCards(50);
+grabBag(200, guestNames);
+console.log("Everyone has selected a grab bag name from the hat.");
