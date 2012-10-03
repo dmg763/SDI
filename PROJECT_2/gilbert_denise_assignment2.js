@@ -24,9 +24,9 @@ var guestNames = [
 
 var prepTime = function (daysLeft) {  // Argument
     if (daysLeft <= 83) {  // Argument Conditional
-	    console.log("Christmas is right around the corner.  I need to start preparing for the holiday.");
+	    console.log("Christmas is right around the corner.  I need to start preparing for the holiday.");  // Output If True
     } else {
-	    console.log("I still have time to prepare for the Christmas holiday.");
+	    console.log("I still have time to prepare for the Christmas holiday.");  // Output If False
     };
 };
 
@@ -69,12 +69,12 @@ var grabBag = function (giftBudget, guestNames) {  // Number and Array Arguments
     var adultGuests = guestNames;  //  Local Variable
     adultGuests.splice(7, 2);
     if (((giftBudget <= 200) || (adultGuests.length >= 6)) && !((giftBudget <= 200) && (adultGuests.length >= 6))) {
-	    console.log("My budget is rather limited this year.  We are going to do a grab bag for the adults.");
+	    console.log("My budget is rather limited this year.  We are going to do a grab bag for the adults.");  // Output If True
 	    console.log("The adults will pull a grab bag name from a hat.");
     } else {
-	    console.log("My budget is looking good.  I may even be able to do a few little extras this year.");
+	    console.log("My budget is looking good.  I may even be able to do a few little extras this year.");  // Output If False
     };
-    for (var i = 0; i < adultGuests.length; i++) {  // For Loop, Math
+    for (var i = 0; i < adultGuests.length; i += 1) {  // For Loop, Math
 	    console.log(adultGuests[i] + " has pulled a grab bag name.");
     };
     return adultGuests;  // Return Array
@@ -91,4 +91,4 @@ console.log("I have " + cardsRemaining + " Christmas cards left to prepare.");
 var grabBagParticipants = grabBag(250, guestNames);
 console.log("My adult guests will be: " + grabBagParticipants + ".");
 var continuation = continueStory("Christmas", "real");
-console.log ("Now I need to decide on what types of " + continuation + " I should bake!");
+console.log("Now I need to decide on what types of " + continuation + " I should bake!");
