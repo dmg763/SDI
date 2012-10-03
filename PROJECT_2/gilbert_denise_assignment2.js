@@ -7,7 +7,7 @@
 // Global Variables
 
 var holidayName = "Christmas";
-var daysLeft = 83;
+var holidayDay = 25;
 var guestNames = [
     " Jamie",
     " John",
@@ -22,73 +22,72 @@ var guestNames = [
 
 // Procedure
 
-var prepTime = function (daysLeft) {  // Argument
-    if (daysLeft <= 83) {  // Argument Conditional
-	    console.log("Christmas is right around the corner.  I need to start preparing for the holiday.");  // Output If True
+var prepTime = function (daysLeft) {
+    if (daysLeft <= 83) {
+	    console.log("December " + holidayDay + "th is right around the corner.  I need to start preparing for the " + holidayName + " holiday.");
     } else {
-	    console.log("I still have time to prepare for the Christmas holiday.");  // Output If False
+	    console.log("I still have time to prepare for the " + holidayName + " holiday.");
     };
 };
 
 // Boolean Function
 
-var confirmedWithFamily = function (invitees, confirmedGuests) {  // Two Arguments
+var confirmedWithFamily = function (invitees, confirmedGuests) {
     var willHost;
-    if ((invitees > 2) && (confirmedGuests >= 4)) { // Comparison
+    if ((invitees > 2) && (confirmedGuests >= 4)) {
 	    willHost = true;
-	    console.log("I have discussed the holiday with my family."); // Output If True
+	    console.log("I have discussed the holiday with my family.");
     } else {
 	    willHost = false;
-	    console.log("I have discussed the holdiay with my family.");  // Output If False
+	    console.log("I have discussed the holdiay with my family.");
     };
-    return willHost;  // Return Boolean
+    return willHost;
 };
 
 // Number Function
 
-var sendChristmasCards = function (christmasCards) {  // Number Argument
-    var cardsPrepared = 10;  // Local Variable
-    while (christmasCards > 0) {  // While Loop
-	    christmasCards = (christmasCards - cardsPrepared); // Math
-	    console.log("I have prepared " + cardsPrepared + " Christmas cards.  I have " + christmasCards + " cards remaining to sign and stamp.");  // Output
+var sendChristmasCards = function (christmasCards) {
+    var cardsPrepared = 10;
+    while (christmasCards > 0) {
+	    christmasCards = (christmasCards - cardsPrepared);
+	    console.log("I have prepared " + cardsPrepared + " " + holidayName + " cards.  I have " + christmasCards + " cards remaining to sign and stamp.");
     };
-    return christmasCards;  // Return Number
+    return christmasCards;
 };
 
 // String Function
 
-var continueStory = function (holidayName, treeType) {  // Two String Arguments
-    var goodies = "cookies";  // Local Variable
+var continueStory = function (goodies, treeType) {
     console.log("I have a feeling this is going to be a very nice " + holidayName + ".  I think I may even have a " + treeType + " tree and bake several " + goodies + ".");
-    return goodies;  // Return String
+    return goodies;
 };
 
 // Array Function
 
-var grabBag = function (giftBudget, guestNames) {  // Number and Array Arguments
-    var adultGuests = guestNames;  //  Local Variable
+var grabBag = function (giftBudget, guestNames) {
+    var adultGuests = guestNames;
     adultGuests.splice(7, 2);
     if (((giftBudget <= 200) || (adultGuests.length >= 6)) && !((giftBudget <= 200) && (adultGuests.length >= 6))) {
-	    console.log("My budget is rather limited this year.  We are going to do a grab bag for the adults.");  // Output If True
+	    console.log("My budget is rather limited this year.  We are going to do a grab bag for the adults.");
 	    console.log("The adults will pull a grab bag name from a hat.");
     } else {
-	    console.log("My budget is looking good.  I may even be able to do a few little extras this year.");  // Output If False
+	    console.log("My budget is looking good.  I may even be able to do a few little extras this year.");
     };
-    for (var i = 0; i < adultGuests.length; i += 1) {  // For Loop, Math
+    for (var i = 0; i < adultGuests.length; i += 1) {
 	    console.log(adultGuests[i] + " has pulled a grab bag name.");
     };
-    return adultGuests;  // Return Array
+    return adultGuests;
 };
 
 // Returned Values to Output
 
-prepTime(daysLeft);
+prepTime(83);
 var myWillHost = confirmedWithFamily(9, 7);
-console.log("It is " + myWillHost + " that I will be hosting Christmas this year.");
-console.log("I enjoy the tradition of sending out Christmas cards.");
+console.log("It is " + myWillHost + " that I will be hosting "  + holidayName +  " this year.");
+console.log("I enjoy the tradition of sending out " + holidayName + " cards.");
 var cardsRemaining = sendChristmasCards(50);
-console.log("I have " + cardsRemaining + " Christmas cards left to prepare.");
+console.log("I have " + cardsRemaining + " " + holidayName + " cards left to prepare.");
 var grabBagParticipants = grabBag(250, guestNames);
 console.log("My adult guests will be: " + grabBagParticipants + ".");
-var continuation = continueStory("Christmas", "real");
+var continuation = continueStory("cookies", "real");
 console.log("Now I need to decide on what types of " + continuation + " I should bake!");
