@@ -8,15 +8,16 @@
 
 var toDoList = {
     toDoListItems: [
-	    {Go_Shopping: true},
-	    {Gather_Recipies: true},
+	    {Go_Gift_Shopping: true},
+	    {Go_Food_Shopping: true},
+	    ["Gather Cookie Recipies", true],
 	    {Wrap_Presents: true},
 	    {Get_Tree: true},
 	    {Address_Christmas_Cards: true},
 	    {Make_Stockings: true}
     ]
 };
-console.log(toDoList);
+
 // Procedure
 
 var getToDoList = function (toDoList) {
@@ -28,6 +29,18 @@ var getToDoList = function (toDoList) {
 };
 
 // Boolean Function
+
+var checkToDoList = function (toDoList) {
+    var getCookieRecipes;
+    if (toDoList.toDoListItems[2][1] === true) {
+	    getCookieRecipes = true;
+	    console.log("Gather Cookie Recipes is still on my to-do list.");
+    } else {
+	    getCookieRecipes = false;
+	    console.log("Gather Cookie Recipes is no longer on my to-do list.");
+    };
+    return getCookieRecipes;
+};
 
 // Array Function
 
@@ -44,3 +57,5 @@ var getRecipes = function () {
 // Returned Values to Output
 
 getToDoList(toDoList);
+var findRecipes = checkToDoList(toDoList);
+console.log("It is " + findRecipes + " that I need to gather some cookie recipes.");
