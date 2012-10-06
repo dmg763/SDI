@@ -6,19 +6,21 @@
 
 // Global Variables
 
-var toDoList = [
-    "Go Shopping",
-    "Gather Recipies",
-    "Wrap Presents",
-    "Get Tree",
-    "Address Christmas Cards",
-    "Make Stockings"
-];
-
+var toDoList = {
+    toDoListItems: [
+	    {Go_Shopping: true},
+	    {Gather_Recipies: true},
+	    {Wrap_Presents: true},
+	    {Get_Tree: true},
+	    {Address_Christmas_Cards: true},
+	    {Make_Stockings: true}
+    ]
+};
+console.log(toDoList);
 // Procedure
 
 var getToDoList = function (toDoList) {
-    if (toDoList.length !== 0) {
+    if (toDoList.toDoListItems.length !== 0) {
 	    console.log("I have several things left on my to do list.  I better get started!");
     } else {
 	    console.log("I have completed everything I need to prepare for the holiday.");
