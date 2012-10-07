@@ -8,6 +8,17 @@
 
 var holidayDay = 25;
 var holidayName = "Christmas";
+var guestNames = [
+    " Jamie",
+    " John",
+    " Stephen",
+    " Cassie",
+    " David",
+    " Darlene",
+    " Jeff",
+    " Damian",
+    " Scottie Jr."
+];
 
 // JSON Data
 
@@ -15,6 +26,10 @@ var toDoList = {
     listItems: [
 	    {
 		    listItem: "Address Christmas Cards",
+		    needToComplete: true,
+	    },
+	    {
+		    listItem: "Have the Adults Pull Grab Bag Names",
 		    needToComplete: true,
 	    },
 	    {
@@ -89,24 +104,6 @@ var getToDoList = {
     }
 };
 
-// Number Function
-
-var sendChristmasCards = {
-    prepareCards: function (christmasCards, cardsPrepared) {
-	    while (christmasCards > 0) {
-		    christmasCards = (christmasCards - cardsPrepared);
-		    console.log("I have prepared " + cardsPrepared + " " + holidayName + " cards.  I have " + christmasCards + " cards remaining to sign and stamp.");
-	    };
-	    return christmasCards;
-    }
-};
-
-// Array Function
-
-
-
-// String Function
-
 // Object Function
 
 var checkToDoList = {
@@ -121,6 +118,48 @@ var checkToDoList = {
 	    return toDoList.listItems[0].listItem;
     }
 };
+
+// Number Function
+
+var sendChristmasCards = {
+    prepareCards: function (christmasCards, cardsPrepared) {
+	    while (christmasCards > 0) {
+		    christmasCards = (christmasCards - cardsPrepared);
+		    console.log("I have prepared " + cardsPrepared + " " + holidayName + " cards.  I have " + christmasCards + " cards remaining to sign and stamp.");
+	    };
+	    return christmasCards;
+    }
+};
+
+// Array Function
+
+var grabBag = {
+    pullGrabBagNames: function (giftBudget, guestNames) {
+	    var adultGuests = guestNames;
+	    adultGuests.splice(7, 2);
+	    if (((giftBudget <= 200) || (adultGuests.length >= 6)) && !((giftBudget <= 200) && (adultGuests.length >= 6))) {
+		    console.log("My budget is rather limited this year.  We are going to do a grab bag for the adults.");
+		    console.log("The adults will pull a grab bag name from a hat.");
+	    } else {
+		    console.log("My budget is looking good.  I may even be able to do a few little extras this year.");
+    };
+	    for (var i = 0; i < adultGuests.length; i += 1) {
+		    console.log(adultGuests[i] + " has pulled a grab bag name.");
+    };
+	    return adultGuests;
+    }
+};
+
+
+// String Function
+
+var continueStory = {
+    upcomingEvents: function (goodies, treeType) {
+	    console.log("I have a feeling this is going to be a very nice " + holidayName + ".  I think I may even have a " + treeType + " tree and bake several " + goodies + ".");
+	    return goodies;
+    }
+};
+
 // Returned Values to Output
 
 prepTime.dayRemaining(79);
@@ -129,6 +168,9 @@ console.log("It is " + myWillHost + " that I will be hosting " + holidayName + "
 getToDoList.toDoListItems(toDoList);
 var nextToDoListItem = checkToDoList.nextItem(toDoList);
 console.log("I will begin to " + nextToDoListItem + ".");
-sendChristmasCards.prepareCards(50, 10);
-
-// console.log("It is " + findRecipes + " that I need to gather some cookie recipes.");
+var cardsRemaining = sendChristmasCards.prepareCards(50, 10);
+console.log("I have " + cardsRemaining + " " + holidayName + " cards left to prepare.");
+console.log("TRY TO SET UP CODE TO RECALL THE CHECK TO DO LIST FUNCTION");
+var grabBagParticipants = grabBag.pullGrabBagNames(250, guestNames);
+console.log("All of the adults (" + grabBagParticipants + ") have pulled a grab bag name.");
+continueStory.upcomingEvents("cookies", "real");
