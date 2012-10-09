@@ -20,41 +20,41 @@ var cookieCost = 50;
 var toDoList = {
     listItems: [
 	    {
-		    listItem: "shop for and address Christmas cards",
-		    howMany: 50
+		    "listItem": "shop for and address Christmas cards",
+		    "howMany": 50
 	    },
 	    {
-		    listItem: "have the adult family members pull grab bag names"
+		    "listItem": "have the adult family members pull grab bag names"
 	    },
 	    {
-		    listItem: "gather cookie recipes",
-		    howMany: 10,
-		    tins: 20
+		    "listItem": "gather cookie recipes",
+		    "howMany": 10,
+		    "tins": 20
 	    },
 	    {
-		    listItem: "create a gift list"
+		    "listItem": "create a gift list"
 	    },
 	    {
-		    listItem: "go gift shopping"
+		    "listItem": "go gift shopping"
 	    },
 	    {
-		    listItem: "decide on menu items"
+		    "listItem": "decide on menu items"
 	    },
 	    {
-		    listItem: "go grocery shopping"
+		    "listItem": "go grocery shopping"
 	    },
 	    {
-		    listItem: "wrap presents"
+		    "listItem": "wrap presents"
 	    },
 	    {
-		    listItem: "get a tree"
+		    "listItem": "get a tree"
 	    },
 	    {
-		    listItem: "make stockings",
-		    howMany: 2
+		    "listItem": "make stockings",
+		    "howMany": 2
 	    },
 	    {
-		    listItem: "select game(s) to play"
+		    "listItem": "select game(s) to play"
 	    }
     ]
 };
@@ -62,42 +62,42 @@ var toDoList = {
 var guestList = {
     guestInfo: [
 	    {
-		    name: "Jamie",
-		    isAdult: true,
-		    children: 1
+		    "name": "Jamie",
+		    "isAdult": true,
+		    "children": 1
 	    },
 	    {
-		    name: "John",
-		    isAdult: true
+		    "name": "John",
+		    "isAdult": true
 	    },
 	    {
-		    name: "Stephen",
-		    isAdult: true,
-		    children: 1
+		    "name": "Stephen",
+		    "isAdult": true,
+		    "children": 1
 	    },
 	    {
-		    name: "Cassie",
-		    isAdult: true
+		    "name": "Cassie",
+		    "isAdult": true
 	    },
 	    {
-		    name: "David",
-		    isAdult: true
+		    "name": "David",
+		    "isAdult": true
 	    },
 	    {
-		    name: "Darlene",
-		    isAdult: true
+		    "name": "Darlene",
+		    "isAdult": true
 	    },
 	    {
-		    name: "Jeff",
-		    isAdult: true
+		    "name": "Jeff",
+		    "isAdult": true
 	    },
 	    {
-		    name: "Damian",
-		    isAdult: false
+		    "name": "Damian",
+		    "isAdult": false
 	    },
 	    {
-		    name: "Scottie Jr.",
-		    isAdult: false
+		    "name": "Scottie Jr.",
+		    "isAdult": false
 	    }
     ]
 };
@@ -105,15 +105,17 @@ var guestList = {
 // Method Procedure
 
 var getDaysRemaining = {
-    daysRemaining: function (holidayDay, dayBefore) {
+    holidayDay: 25,
+    dayBefore: "Christmas Eve",
+    daysRemaining: function () {
 	    var xmasDay = new Date("December 25, 2012 00:01:00"),
 		    today = new Date(),
-		    dayDifference = xmasDay.getTime() - today.getTime(),
+		    dayDifference = (xmasDay.getTime() - today.getTime()),
 		    seconds = Math.floor(dayDifference / 1000),
 		    minutes = Math.floor(seconds / 60),
 		    hours = Math.floor(minutes / 60),
 		    days = Math.floor(hours / 24);
-	    console.log("There are only " + days + " days remaining until December " + holidayDay + "th, 2012, the Christmas holiday.  I need to start preparing so I can be ready by " + dayBefore + "!");
+	    console.log("There are only " + days + " days remaining until December " + this.holidayDay + "th, 2012, the Christmas holiday.  I need to start preparing so I can be ready by " + this.dayBefore + "!");
     }
 };
 
@@ -243,7 +245,7 @@ var continueStory = {
 
 // Returned Values to Output
 
-getDaysRemaining.daysRemaining(25, "Christmas Eve");
+getDaysRemaining.daysRemaining();
 var myWillHost = confirmedWithFamily.contactGuests(9, 7);
 hostingHoliday(myWillHost);
 getToDoList.toDoListItems(toDoList);
