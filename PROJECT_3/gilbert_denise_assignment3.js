@@ -7,12 +7,6 @@
 // Global Variables
 
 var holidayName = "Christmas";
-var cookieRecipes = [
-	" Famous Chocolate Chips",
-	" Kolaczki",
-	" Snowballs",
-	" Peanut Blossoms"
-];
 var cookieCost = 50;
 
 // JSON Data
@@ -104,7 +98,7 @@ var guestList = {
 
 // Method Procedure
 
-var getDaysRemaining = {
+var countDown = {
     holidayDay: 25,
     dayBefore: "Christmas Eve",
     daysRemaining: function () {
@@ -122,9 +116,11 @@ var getDaysRemaining = {
 // Method Function
 
 var confirmedWithFamily = {
-    contactGuests: function (invitees, confirmedGuests) {
+    invitees: 9,
+    confirmedGuests: 7,
+    contactGuests: function () {
 	    var willHost;
-	    if ((invitees > 2) && (confirmedGuests >= 4)) {
+	    if ((this.invitees > 2) && (this.confirmedGuests >= 4)) {
 		    willHost = true;
 	    } else {
 		    willHost = false;
@@ -133,18 +129,22 @@ var confirmedWithFamily = {
     }
 };
 
-var hostingHoliday = function (myWillHost) {
-    if (myWillHost === true) {
-	    console.log("Since I love to entertain, I am excited to announce that I will be hosting the Christmas holiday this year.");
-    } else {
-	    console.log("Unfortunately, I will not be hosting the Christmas holiday this year.");
+// Method Procedure
+
+var hostingHoliday = {
+    announce: function (myWillHost) {  // Boolean Argument
+	    if (myWillHost === true) {
+		    console.log("Since I love to entertain, I am excited to announce that I will be hosting the Christmas holiday this year.");
+	    } else {
+		    console.log("Unfortunately, I will not be hosting the Christmas holiday this year.");
+	    }
     }
 };
 
 // Accessor Method
 
 var getToDoList = {
-    toDoListItems: function (toDoList) {
+    toDoListItems: function (toDoList) {  // Object Argument
 	    if (toDoList.listItems.length !== 0) {
 		    console.log("I have started a to-do list and, so far, I have " + toDoList.listItems.length + " items on the list.  I better get moving!");
 	    } else {
@@ -153,10 +153,10 @@ var getToDoList = {
     }
 };
 
-// Object Argument
+// Another Accessor Method
 
 var checkToDoList = {
-    nextItem: function (toDoList) {
+    nextItem: function (toDoList) {  // Object Argument
 	    var anotherListItem;
 	    if (toDoList.listItems[0] !== null) {
 		    anotherListItem = true;
@@ -171,8 +171,8 @@ var checkToDoList = {
 
 // Number Function
 
-var testChristmasCards = {
-    totalCards: 30,
+var christmasCards = {
+    totalCards: 30,  // Number Properties
     cardsPrepared: 10,
     addressCards: function () {
 	    while (this.totalCards > 0) {
@@ -186,7 +186,7 @@ var testChristmasCards = {
 // Mutator Method
 
 var removeItemFromToDoList = {
-    alterList: function (toDoList) {
+    alterList: function (toDoList) {  // Object Argument
 	    delete toDoList.listItems[0];
 	    var newToDoList = [];
 	    for (var index in toDoList.listItems) {
@@ -202,7 +202,7 @@ var removeItemFromToDoList = {
 // Another Accessor Method
 
 var changeToDoList = {
-    nextItem: function (toDoList) {
+    nextItem: function (toDoList) {  // Object Argument
 	    var anotherListItem;
 	    if (toDoList.listItems[0] !== null) {
 		    anotherListItem = true;
@@ -211,51 +211,77 @@ var changeToDoList = {
 		    anotherListItem = false;
 		    console.log("There are no more items on my to-do list.");
 	    }
-	    return toDoList.listItems[0].listItem;
+	    return toDoList.listItems[0].listItem;  // Return String
     }
 };
 
 // Array Function
 
-var gatherCookieRecipes = function (cookieRecipes, neededRecipes) {
-    if (cookieRecipes.length === neededRecipes) {
-	    if (cookieCost === 50) {
-		    console.log("I have all the cookie recipes I need and the budget available to make them.");
-	    } else {
-		    console.log("I have all the cookie recipes I need.  Unfortunately, I do not have the budget available to make them.");
+var recipeBox = {
+    recipeCard: [
+	    {
+		    name: "Famous Chocolate Chip",
+		    ingredients: ["flour", "chocolate chips", "sugar", "butter"],
+		    directions: "Directions to make Famous Chocolate Chip cookies."
+	    },
+	    {
+		    name: "Kolaczki",
+		    ingredients: ["flour", "fruit filling", "sugar", "butter"],
+		    directions: "Directions to make Kolaczki."
+	    },
+	    {
+		    name: "Snowballs",
+		    ingredients: ["flour", "walnuts", "sugar", "butter"],
+		    directions: "Directions to make Snowball cookies."
+	    },
+	    {
+		    name: "Peanut Blossoms",
+		    ingredients: ["flour", "Hershey\'s Kisses", "sugar", "butter"],
+		    directions: "Directions to make Peanut Blossoms cookies."
 	    }
-	
-    } else {
-	    if (cookieRecipes.length <= neededRecipes) {
-		    console.log("So far I have cookie recipes for: " + cookieRecipes + ".");
-	    } else {
-		    console.log("I have a bit more room in my cookie budget.  I should gather some more " + cookieRecipes + ".");
+    ],
+    getRecipeCard: function (name) {
+	    for (var i = 0 ; i < recipeBox.recipeCard.length; i += 1) {
+		    if ((name !== undefined) && (name === "Kolaczki")) {
+			    console.log("I have found my " + name + " recipe:");
+			    break;
+		    } else {
+			    console.log("I cannot find my " + name + " recipe.");
+			    break;
+		    }
 	    }
+	    return recipeBox.recipeCard[1];  // Return Object
     }
 };
 
-// String Function
+
+
+// Method Procedure
 
 var continueStory = {
-    progress: function (progressType, holidayType) {
-	    console.log("I am making " + progressType + " progress on my to-do list.  I have a feeling this is going to be a " + holidayType + " Christmas!");
-	    return progressType;  // Return String
+    progressType: "much",  // String Properties
+    holidayType: "spectacular",
+    progress: function () {
+	    console.log("I am making " + this.progressType + " progress on my to-do list.  I have a feeling this is going to be a " + this.holidayType + " Christmas!");
     }
 };
 
 // Returned Values to Output
 
-getDaysRemaining.daysRemaining();
-var myWillHost = confirmedWithFamily.contactGuests(9, 7);
-hostingHoliday(myWillHost);
+countDown.daysRemaining();
+var myWillHost = confirmedWithFamily.contactGuests();
+hostingHoliday.announce(myWillHost);
 getToDoList.toDoListItems(toDoList);
 var nextToDoListItem = checkToDoList.nextItem(toDoList);
 console.log("Today, I will start to " + nextToDoListItem + " so they will be ready to mail in a few weeks.");
-var remainingCards = testChristmasCards.addressCards();
+var remainingCards = christmasCards.addressCards();
+var testReturn = christmasCards.addressCards();
+console.log("I have " + testReturn + " Christmas cards remaining to be addressed.");
 removeItemFromToDoList.alterList(toDoList);
 var revisedToDoList = changeToDoList.nextItem(toDoList);
 console.log("The family is getting together next weekend.  I am going to " + revisedToDoList + " then.");
 removeItemFromToDoList.alterList(toDoList);
 var revisedToDoList = changeToDoList.nextItem(toDoList);
-gatherCookieRecipes(cookieRecipes, 10);
-continueStory.progress("much", "spectacular");
+var showRecipeCard = recipeBox.getRecipeCard("Kolaczki");
+console.log(showRecipeCard);
+continueStory.progress();
