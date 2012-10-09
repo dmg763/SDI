@@ -20,13 +20,16 @@ var cookieCost = 50;
 var toDoList = {
     listItems: [
 	    {
-		    listItem: "shop for and address Christmas cards"
+		    listItem: "shop for and address Christmas cards",
+		    howMany: 50
 	    },
 	    {
 		    listItem: "have the adult family members pull grab bag names"
 	    },
 	    {
-		    listItem: "gather cookie recipes"
+		    listItem: "gather cookie recipes",
+		    howMany: 10,
+		    tins: 20
 	    },
 	    {
 		    listItem: "create a gift list"
@@ -47,7 +50,8 @@ var toDoList = {
 		    listItem: "get a tree"
 	    },
 	    {
-		    listItem: "make stockings"
+		    listItem: "make stockings",
+		    howMany: 2
 	    },
 	    {
 		    listItem: "select game(s) to play"
@@ -60,38 +64,40 @@ var guestList = {
 	    {
 		    name: "Jamie",
 		    isAdult: true,
+		    children: 1
 	    },
 	    {
 		    name: "John",
-		    isAdult: true,
+		    isAdult: true
 	    },
 	    {
 		    name: "Stephen",
 		    isAdult: true,
+		    children: 1
 	    },
 	    {
 		    name: "Cassie",
-		    isAdult: true,
+		    isAdult: true
 	    },
 	    {
 		    name: "David",
-		    isAdult: true,
+		    isAdult: true
 	    },
 	    {
 		    name: "Darlene",
-		    isAdult: true,
+		    isAdult: true
 	    },
 	    {
 		    name: "Jeff",
-		    isAdult: true,
+		    isAdult: true
 	    },
 	    {
 		    name: "Damian",
-		    isAdult: false,
+		    isAdult: false
 	    },
 	    {
 		    name: "Scottie Jr.",
-		    isAdult: false,
+		    isAdult: false
 	    }
     ]
 };
@@ -163,13 +169,15 @@ var checkToDoList = {
 
 // Number Function
 
-var sendChristmasCards = {
-    prepareCards: function (christmasCards, cardsPrepared) {
-	    while (christmasCards > 0) {
-		    christmasCards = (christmasCards - cardsPrepared);
-		    console.log("I have addressed " + cardsPrepared + " " + holidayName + " cards.  I have " + christmasCards + " cards remaining to sign and stamp.");
+var testChristmasCards = {
+    totalCards: 30,
+    cardsPrepared: 10,
+    addressCards: function () {
+	    while (this.totalCards > 0) {
+		    this.totalCards = (this.totalCards - this.cardsPrepared);
+		    console.log("I have addressed " + this.cardsPrepared + " " + holidayName + " cards.  I have " + this.totalCards + " cards remaining to sign and stamp.");
 	    }
-	    return christmasCards;  // Return Number
+	    return this.totalCards;  // Return Number
     }
 };
 
@@ -210,18 +218,18 @@ var changeToDoList = {
 var gatherCookieRecipes = function (cookieRecipes, neededRecipes) {
     if (cookieRecipes.length === neededRecipes) {
 	    if (cookieCost === 50) {
-		    console.log("I have all the cookie recipes I need and the budget to be able.");
+		    console.log("I have all the cookie recipes I need and the budget available to make them.");
 	    } else {
-		    console.log("I have all the cookie recipes I need.  Unfortunately, I do not have the budget to make them all.");
-	    };
+		    console.log("I have all the cookie recipes I need.  Unfortunately, I do not have the budget available to make them.");
+	    }
 	
     } else {
 	    if (cookieRecipes.length <= neededRecipes) {
 		    console.log("So far I have cookie recipes for: " + cookieRecipes + ".");
 	    } else {
 		    console.log("I have a bit more room in my cookie budget.  I should gather some more " + cookieRecipes + ".");
-	    };
-    };
+	    }
+    }
 };
 
 // String Function
@@ -241,8 +249,7 @@ hostingHoliday(myWillHost);
 getToDoList.toDoListItems(toDoList);
 var nextToDoListItem = checkToDoList.nextItem(toDoList);
 console.log("Today, I will start to " + nextToDoListItem + " so they will be ready to mail in a few weeks.");
-var cardsRemaining = sendChristmasCards.prepareCards(30, 10);
-console.log("I have " + cardsRemaining + " " + holidayName + " cards left to prepare.");
+var remainingCards = testChristmasCards.addressCards();
 removeItemFromToDoList.alterList(toDoList);
 var revisedToDoList = changeToDoList.nextItem(toDoList);
 console.log("The family is getting together next weekend.  I am going to " + revisedToDoList + " then.");
