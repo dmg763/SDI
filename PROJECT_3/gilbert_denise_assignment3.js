@@ -86,7 +86,7 @@ var getToDoList = {
 	    }
 	    return toDoList.listItems[0].listItem;  // Return String
     },
-        alterList: function (toDoList) {  // Object Argument
+    alterList: function (toDoList) {  // Object Argument
 	    delete toDoList.listItems[0];
 	    var newToDoList = [];
 	    for (var index in toDoList.listItems) {  // For-In Loop
@@ -152,16 +152,6 @@ var recipeBox = {
     }
 };
 
-// Method Procedure
-
-var continueStory = {
-    progressType: "much",  // String Properties
-    holidayType: "spectacular",
-    progress: function () {
-	    console.log("I am making " + this.progressType + " progress on my to-do list.  I have a feeling this is going to be a " + this.holidayType + " Christmas!");
-    }
-};
-
 // Another Method Procedure
 
 var estimateCookieAmount = {
@@ -194,7 +184,7 @@ var childGiftList = {
 	    gift2: "roller skates",
 	    gift3: "craft supplies"
     },
-    nestedConditional: function (giftListNames) {  // Array Argument
+    childToBuyFor: function (giftListNames) {  // Array Argument
 	    if ((this.child1 === true) && (giftListNames[0] === "Damian"))
 	    {
 		    if (this.child1ListReady === true)  // Nested Conditional
@@ -207,6 +197,16 @@ var childGiftList = {
 			    else
 			    console.log("I need to call Scottie Jr.'s mom and obtain some more gift ideas.");
 	    }
+    }
+};
+
+// Method Procedure
+
+var continueStory = {
+    progressType: "much",  // String Properties
+    holidayType: "spectacular",
+    progress: function () {
+	    console.log("I am making " + this.progressType + " progress on my to-do list.  I have a feeling this is going to be a " + this.holidayType + " Christmas!");
     }
 };
 
@@ -230,5 +230,5 @@ console.log(showRecipeCard);
 estimateCookieAmount.countCookies(16);
 getToDoList.alterList(toDoList);
 getToDoList.nextItem(toDoList);
-childGiftList.nestedConditional(giftListNames);
+childGiftList.childToBuyFor(giftListNames);
 continueStory.progress();
