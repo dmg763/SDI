@@ -40,9 +40,6 @@ var toDoList = {
 		    "listItem": "go gift shopping"
 	    },
 	    {
-		    "listItem": "get a tree"
-	    },
-	    {
 		    "listItem": "decorate house"
 	    },
 	    {
@@ -54,49 +51,6 @@ var toDoList = {
 	    },
 	    {
 		    "listItem": "go grocery shopping"
-	    }
-    ]
-};
-
-var guestList = {
-    guestInfo: [
-	    {
-		    "name": "Jamie",
-		    "isAdult": true,
-		    "children": 1
-	    },
-	    {
-		    "name": "John",
-		    "isAdult": true
-	    },
-	    {
-		    "name": "Stephen",
-		    "isAdult": true,
-		    "children": 1
-	    },
-	    {
-		    "name": "Cassie",
-		    "isAdult": true
-	    },
-	    {
-		    "name": "David",
-		    "isAdult": true
-	    },
-	    {
-		    "name": "Darlene",
-		    "isAdult": true
-	    },
-	    {
-		    "name": "Jeff",
-		    "isAdult": true
-	    },
-	    {
-		    "name": "Damian",
-		    "isAdult": false
-	    },
-	    {
-		    "name": "Scottie Jr.",
-		    "isAdult": false
 	    }
     ]
 };
@@ -271,43 +225,40 @@ var continueStory = {
 
 // Another Method Procedure
 
-var lastOne = {
-    deptCode: 20,
-    salary: 45000,
-    bonus: 0,
-    nestedConditional: function () { // Number Argument
-	    if ((this.deptCode === 20) || (this.deptCode === 30))
-	    {
-		    if ((this.salary >= 35000) && (this.salary <= 79000))// Nested Conditional
-			    bonus = 200;
-			    else
-			    bonus = 250;
-	    }
-	    else if ((this.deptCode === 10) || (this.deptCode === 40))
-	    {
-		if ((this.salary >= 45000) && (this.salary <= 109000))// Nested Conditional
-			    bonus = 350;
-			    else
-			    bonus = 400;
-	    }
-	    console.log("Bonus is " + bonus);
-    }
-};
-
-lastOne.nestedConditional();
-
-// Nested Loop
-
 var estimateCookieAmount = {
     countCookies: function (numberBaskets) {  // Number Argument
 	    var i = 0;
 	    var j = 0;
-	    for (i = 1; i <= 1; i += 1) {
+	    for (i = 1; i <= 1; i += 1) {  // Nested Loop
 		    for (j = 1; j <= 3; j += 1) {
 		    }
 		    console.log("If I put three cookies in " + j + " basket(s).");
 		    console.log("I will go through " + i + " dozen cookies.");
 		    console.log("If I make " + numberBaskets + " baskets, I will need at least " + numberBaskets / j + " dozen cookies.");
+	    }
+    }
+};
+
+// Another Method Procedure
+
+var childGiftList = {
+    childName: "Scottie, Jr.",  // String Property
+    child1ListReady: false,  // Boolean Property
+    child2ListReady: false,
+    nestedConditional: function () {
+	    if (this.childName === "Damian")
+	    {
+		    if (this.child1ListReady === true)  // Nested Conditional
+			    console.log("I have Damian's gift list prepared.  I need to start shopping for his gifts.");
+			    else
+			    console.log("I need to call Damian's mom and obtain some more gift ideas.");
+	    }
+	    else if (this.childName === "Scottie, Jr.")
+	    {
+		    if (this.child2ListReady === true)  // Nested Conditional
+			    console.log("I have Scottie Jr.'s gift list prepared.  I need to start shopping for his gifts.");
+			    else
+			    console.log("I need to call Scottie Jr.'s mom and obtain some more gift ideas.");
 	    }
     }
 };
@@ -333,4 +284,5 @@ console.log(showRecipeCard);
 estimateCookieAmount.countCookies(16);
 removeItemFromToDoList.alterList(toDoList);
 var revisedToDoList = changeToDoList.nextItem(toDoList);
+childGiftList.nestedConditional();
 continueStory.progress();
