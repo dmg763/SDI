@@ -8,53 +8,6 @@
 
 var holidayName = "Christmas";
 
-// JSON Data
-
-var toDoList = {
-    listItems: [
-	    {
-		    "listItem": "shop for and address Christmas cards",
-		    "howMany": 50
-	    },
-	    {
-		    "listItem": "have the adult family members pull grab bag names"
-	    },
-	    {
-		    "listItem": "gather cookie recipes",
-		    "howMany": 10,
-		    "tins": 20
-	    },
-	    {
-		    "listItem": "create a gift list"
-	    },
-	    {
-		    "listItem": "decide on menu items"
-	    },
-	    {
-		    "listItem": "decide on game(s) to play"
-	    },
-	    {
-		    "listItem": "get a tree"
-	    },
-	    {
-		    "listItem": "go gift shopping"
-	    },
-	    {
-		    "listItem": "decorate house"
-	    },
-	    {
-		    "listItem": "wrap presents"
-	    },
-	    {
-		    "listItem": "make stockings",
-		    "howMany": 2
-	    },
-	    {
-		    "listItem": "go grocery shopping"
-	    }
-    ]
-};
-
 // Method Procedure
 
 var countDown = {
