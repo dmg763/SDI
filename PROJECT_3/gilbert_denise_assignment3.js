@@ -198,7 +198,7 @@ var estimateCookieAmount = {
 var childGiftList = {
     child1ListReady: false,  // Boolean Property
     child2ListReady: true,
-    damiansGifts: {  // Array Properties
+    damiansGifts: {  // Object Properties
 	    gift1: "bowling ball",
 	    gift2: "bowling bag",
 	    gift3: "bowling shoes"
