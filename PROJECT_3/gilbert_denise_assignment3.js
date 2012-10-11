@@ -7,6 +7,7 @@
 // Global Variables
 
 var holidayName = "Christmas";
+var giftListNames = ["Damian", "Scottie, Jr."];
 
 // Method Procedure
 
@@ -195,18 +196,17 @@ var estimateCookieAmount = {
 // Another Method Procedure
 
 var childGiftList = {
-    childName: "Scottie, Jr.",  // String Property
     child1ListReady: false,  // Boolean Property
     child2ListReady: false,
-    nestedConditional: function () {
-	    if (this.childName === "Damian")
+    nestedConditional: function (giftListNames) {  // Array Argument
+	    if (giftListNames[0] === "Damian")
 	    {
 		    if (this.child1ListReady === true)  // Nested Conditional
 			    console.log("I have Damian's gift list prepared.  I need to start shopping for his gifts.");
 			    else
 			    console.log("I need to call Damian's mom and obtain some more gift ideas.");
 	    }
-	    else if (this.childName === "Scottie, Jr.")
+	    else if (giftListNames[1] === "Scottie, Jr.")
 	    {
 		    if (this.child2ListReady === true)  // Nested Conditional
 			    console.log("I have Scottie Jr.'s gift list prepared.  I need to start shopping for his gifts.");
@@ -216,7 +216,7 @@ var childGiftList = {
     }
 };
 
-// Returned Values to Output
+// Returned Values/Output
 
 countDown.daysRemaining();
 var myWillHost = confirmedWithFamily.contactGuests();
@@ -237,5 +237,5 @@ console.log(showRecipeCard);
 estimateCookieAmount.countCookies(16);
 removeItemFromToDoList.alterList(toDoList);
 var revisedToDoList = changeToDoList.nextItem(toDoList);
-childGiftList.nestedConditional();
+childGiftList.nestedConditional(giftListNames);
 continueStory.progress();
