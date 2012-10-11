@@ -197,19 +197,29 @@ var estimateCookieAmount = {
 
 var childGiftList = {
     child1ListReady: false,  // Boolean Property
-    child2ListReady: false,
+    child2ListReady: true,
+    damiansGifts: {  // Array Properties
+	    gift1: "bowling ball",
+	    gift2: "bowling bag",
+	    gift3: "bowling shoes"
+    },
+    scottiesGifts: {
+	    gift1: "bike",
+	    gift2: "roller skates",
+	    gift3: "craft supplies"
+    },
     nestedConditional: function (giftListNames) {  // Array Argument
 	    if (giftListNames[0] === "Damian")
 	    {
 		    if (this.child1ListReady === true)  // Nested Conditional
-			    console.log("I have Damian's gift list prepared.  I need to start shopping for his gifts.");
+			    console.log("I have Damian's gift list prepared.  I need to start shopping for his gifts.  Today I will be shopping for a " + this.damiansGifts.gift1 + ".");
 			    else
 			    console.log("I need to call Damian's mom and obtain some more gift ideas.");
 	    }
 	    else if (giftListNames[1] === "Scottie, Jr.")
 	    {
 		    if (this.child2ListReady === true)  // Nested Conditional
-			    console.log("I have Scottie Jr.'s gift list prepared.  I need to start shopping for his gifts.");
+			    console.log("I have Scottie Jr.'s gift list prepared.  I need to start shopping for his gifts.  Today I will be shopping for " + this.scottiesGifts.gift1 + ".");
 			    else
 			    console.log("I need to call Scottie Jr.'s mom and obtain some more gift ideas.");
 	    }
