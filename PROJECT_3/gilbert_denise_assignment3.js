@@ -7,7 +7,6 @@
 // Global Variables
 
 var holidayName = "Christmas";
-var cookieCost = 50;
 
 // JSON Data
 
@@ -29,26 +28,32 @@ var toDoList = {
 		    "listItem": "create a gift list"
 	    },
 	    {
-		    "listItem": "go gift shopping"
-	    },
-	    {
 		    "listItem": "decide on menu items"
 	    },
 	    {
-		    "listItem": "go grocery shopping"
-	    },
-	    {
-		    "listItem": "wrap presents"
+		    "listItem": "decide on game(s) to play"
 	    },
 	    {
 		    "listItem": "get a tree"
+	    },
+	    {
+		    "listItem": "go gift shopping"
+	    },
+	    {
+		    "listItem": "get a tree"
+	    },
+	    {
+		    "listItem": "decorate house"
+	    },
+	    {
+		    "listItem": "wrap presents"
 	    },
 	    {
 		    "listItem": "make stockings",
 		    "howMany": 2
 	    },
 	    {
-		    "listItem": "select game(s) to play"
+		    "listItem": "go grocery shopping"
 	    }
     ]
 };
@@ -172,12 +177,12 @@ var checkToDoList = {
 // Number Function
 
 var christmasCards = {
-    totalCards: 30,  // Number Properties
+    totalCards: 20,  // Number Properties
     cardsPrepared: 10,
     addressCards: function () {
-	    while (this.totalCards > 0) {
-		    this.totalCards = (this.totalCards - this.cardsPrepared);
-		    console.log("I have addressed " + this.cardsPrepared + " " + holidayName + " cards.  I have " + this.totalCards + " cards remaining to sign and stamp.");
+	    while (this.totalCards > 0) {  // While Loop
+		    this.totalCards = (this.totalCards - this.cardsPrepared);  // Math
+		    console.log("I have addressed " + this.cardsPrepared + " " + holidayName + " cards.  I have " + this.totalCards + " cards remaining to sign and stamp today.");
 	    }
 	    return this.totalCards;  // Return Number
     }
@@ -215,7 +220,7 @@ var changeToDoList = {
     }
 };
 
-// Array Function
+// Another Accessor Method
 
 var recipeBox = {
     recipeCard: [
@@ -240,8 +245,8 @@ var recipeBox = {
 		    directions: "Directions to make Peanut Blossoms cookies."
 	    }
     ],
-    getRecipeCard: function (name) {
-	    for (var i = 0 ; i < recipeBox.recipeCard.length; i += 1) {
+    getRecipeCard: function (name) {  // String Argument
+	    for (var i = 0 ; i < recipeBox.recipeCard.length; i += 1) {  // For Loop
 		    if ((name !== undefined) && (name === "Kolaczki")) {
 			    console.log("I have found my " + name + " recipe:");
 			    break;
@@ -254,8 +259,6 @@ var recipeBox = {
     }
 };
 
-
-
 // Method Procedure
 
 var continueStory = {
@@ -263,6 +266,48 @@ var continueStory = {
     holidayType: "spectacular",
     progress: function () {
 	    console.log("I am making " + this.progressType + " progress on my to-do list.  I have a feeling this is going to be a " + this.holidayType + " Christmas!");
+    }
+};
+
+// Another Method Procedure
+
+var lastOne = {
+    deptCode: 20,
+    salary: 45000,
+    bonus: 0,
+    nestedConditional: function () { // Number Argument
+	    if ((this.deptCode === 20) || (this.deptCode === 30))
+	    {
+		    if ((this.salary >= 35000) && (this.salary <= 79000))// Nested Conditional
+			    bonus = 200;
+			    else
+			    bonus = 250;
+	    }
+	    else if ((this.deptCode === 10) || (this.deptCode === 40))
+	    {
+		if ((this.salary >= 45000) && (this.salary <= 109000))// Nested Conditional
+			    bonus = 350;
+			    else
+			    bonus = 400;
+	    }
+	    console.log("Bonus is " + bonus);
+    }
+};
+
+lastOne.nestedConditional();
+
+// Nested Loop
+
+var estimateCookieAmount = {
+    countCookies: function () {
+	    var i = 0;
+	    var j = 0;
+	    for (i = 1; i <= 1; i += 1) {
+		    for (j = 1; j <= 3; j += 1) {
+		    }
+		    console.log("If I put three cookies in " + j + " basket(s).");
+		    console.log("I will go through " + i + " dozen cookies.");
+	    }
     }
 };
 
@@ -276,7 +321,7 @@ var nextToDoListItem = checkToDoList.nextItem(toDoList);
 console.log("Today, I will start to " + nextToDoListItem + " so they will be ready to mail in a few weeks.");
 var remainingCards = christmasCards.addressCards();
 var testReturn = christmasCards.addressCards();
-console.log("I have " + testReturn + " Christmas cards remaining to be addressed.");
+console.log("I have " + testReturn + " Christmas cards remaining.");
 removeItemFromToDoList.alterList(toDoList);
 var revisedToDoList = changeToDoList.nextItem(toDoList);
 console.log("The family is getting together next weekend.  I am going to " + revisedToDoList + " then.");
@@ -284,4 +329,7 @@ removeItemFromToDoList.alterList(toDoList);
 var revisedToDoList = changeToDoList.nextItem(toDoList);
 var showRecipeCard = recipeBox.getRecipeCard("Kolaczki");
 console.log(showRecipeCard);
+estimateCookieAmount.countCookies();
+removeItemFromToDoList.alterList(toDoList);
+var revisedToDoList = changeToDoList.nextItem(toDoList);
 continueStory.progress();
