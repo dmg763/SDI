@@ -12,8 +12,8 @@ var giftListNames = ["Damian", "Scottie, Jr."];
 // Method Procedure
 
 var countDown = {
-    holidayDay: 25,
-    dayBefore: "Christmas Eve",
+    holidayDay: 25,  // Number Property
+    dayBefore: "Christmas Eve",  // String Property
     daysRemaining: function () {
 	    var xmasDay = new Date("December 25, 2012 00:01:00"),
 		    today = new Date(),
@@ -29,7 +29,7 @@ var countDown = {
 // Method Function
 
 var confirmedWithFamily = {
-    invitees: 9,
+    invitees: 9,  // Number Properties
     confirmedGuests: 7,
     contactGuests: function () {
 	    var willHost;
@@ -54,7 +54,7 @@ var hostingHoliday = {
     }
 };
 
-// Accessor Method
+// Accessor and Mutator Methods
 
 var getToDoList = {
     toDoListItems: function (toDoList) {  // Object Argument
@@ -63,13 +63,8 @@ var getToDoList = {
 	    } else {
 		    console.log("I have completed everything I need to prepare for the holiday.");
 	    }
-    }
-};
-
-// Another Accessor Method
-
-var checkToDoList = {
-    nextItem: function (toDoList) {  // Object Argument
+    },
+    firstItem: function (toDoList) {  // Object Argument
 	    var anotherListItem;
 	    if (toDoList.listItems[0] !== null) {
 		    anotherListItem = true;
@@ -79,42 +74,7 @@ var checkToDoList = {
 		    console.log("There are no more items on my to-do list.");
 	    }
 	    return toDoList.listItems[0].listItem;  // Return String
-    }
-};
-
-// Number Function
-
-var christmasCards = {
-    totalCards: 20,  // Number Properties
-    cardsPrepared: 10,
-    addressCards: function () {
-	    while (this.totalCards > 0) {  // While Loop
-		    this.totalCards = (this.totalCards - this.cardsPrepared);  // Math
-		    console.log("I have addressed " + this.cardsPrepared + " " + holidayName + " cards.  I have " + this.totalCards + " cards remaining to sign and stamp today.");
-	    }
-	    return this.totalCards;  // Return Number
-    }
-};
-
-// Mutator Method
-
-var removeItemFromToDoList = {
-    alterList: function (toDoList) {  // Object Argument
-	    delete toDoList.listItems[0];
-	    var newToDoList = [];
-	    for (var index in toDoList.listItems) {
-		    if (toDoList.listItems[index]) {
-			    newToDoList.push(toDoList.listItems[index]);
-		    }
-	    }
-	    toDoList.listItems = newToDoList;
-	    return newToDoList;  // Return Array
     },
-};
-
-// Another Accessor Method
-
-var changeToDoList = {
     nextItem: function (toDoList) {  // Object Argument
 	    var anotherListItem;
 	    if (toDoList.listItems[0] !== null) {
@@ -125,13 +85,38 @@ var changeToDoList = {
 		    console.log("There are no more items on my to-do list.");
 	    }
 	    return toDoList.listItems[0].listItem;  // Return String
-    }
+    },
+        alterList: function (toDoList) {  // Object Argument
+	    delete toDoList.listItems[0];
+	    var newToDoList = [];
+	    for (var index in toDoList.listItems) {  // For-In Loop
+		    if (toDoList.listItems[index]) {
+			    newToDoList.push(toDoList.listItems[index]);
+		    }
+	    }
+	    toDoList.listItems = newToDoList;
+	    return newToDoList;  // Return Array
+    },
+};
+
+// Method Function
+
+var christmasCards = {
+    totalCards: 20,  // Number Properties
+    cardsPrepared: 10,
+    addressCards: function () {
+	    while (this.totalCards > 0) {  // While Loop
+		    this.totalCards = (this.totalCards - this.cardsPrepared);  // Math
+		    console.log("I have addressed " + this.cardsPrepared + " " + holidayName + " cards.  I have " + this.totalCards + " cards remaining to sign and stamp today.");
+	    }
+	    return this.totalCards;  // Return Number
+    },
 };
 
 // Another Accessor Method
 
 var recipeBox = {
-    recipeCard: [
+    recipeCard: [  // Array Property
 	    {
 		    name: "Famous Chocolate Chip",
 		    ingredients: ["flour", "chocolate chips", "sugar", "butter"],
@@ -196,8 +181,9 @@ var estimateCookieAmount = {
 // Another Method Procedure
 
 var childGiftList = {
-    child1ListReady: false,  // Boolean Property
+    child1ListReady: true,  // Boolean Property
     child2ListReady: true,
+    child1: false,
     damiansGifts: {  // Object Properties
 	    gift1: "bowling ball",
 	    gift2: "bowling bag",
@@ -209,17 +195,15 @@ var childGiftList = {
 	    gift3: "craft supplies"
     },
     nestedConditional: function (giftListNames) {  // Array Argument
-	    if (giftListNames[0] === "Damian")
+	    if ((this.child1 === true) && (giftListNames[0] === "Damian"))
 	    {
 		    if (this.child1ListReady === true)  // Nested Conditional
 			    console.log("I have Damian's gift list prepared.  I need to start shopping for his gifts.  Today I will be shopping for a " + this.damiansGifts.gift1 + ".");
 			    else
 			    console.log("I need to call Damian's mom and obtain some more gift ideas.");
-	    }
-	    else if (giftListNames[1] === "Scottie, Jr.")
-	    {
+	    } else {
 		    if (this.child2ListReady === true)  // Nested Conditional
-			    console.log("I have Scottie Jr.'s gift list prepared.  I need to start shopping for his gifts.  Today I will be shopping for " + this.scottiesGifts.gift1 + ".");
+			    console.log("I have Scottie Jr.'s gift list prepared.  I need to start shopping for his gifts.  Today I will be shopping for a " + this.scottiesGifts.gift1 + ".");
 			    else
 			    console.log("I need to call Scottie Jr.'s mom and obtain some more gift ideas.");
 	    }
@@ -232,20 +216,19 @@ countDown.daysRemaining();
 var myWillHost = confirmedWithFamily.contactGuests();
 hostingHoliday.announce(myWillHost);
 getToDoList.toDoListItems(toDoList);
-var nextToDoListItem = checkToDoList.nextItem(toDoList);
-console.log("Today, I will start to " + nextToDoListItem + " so they will be ready to mail in a few weeks.");
+getToDoList.firstItem(toDoList);
 var remainingCards = christmasCards.addressCards();
 var testReturn = christmasCards.addressCards();
 console.log("I have " + testReturn + " Christmas cards remaining.");
-removeItemFromToDoList.alterList(toDoList);
-var revisedToDoList = changeToDoList.nextItem(toDoList);
+getToDoList.alterList(toDoList);
+var revisedToDoList = getToDoList.nextItem(toDoList);
 console.log("The family is getting together next weekend.  I am going to " + revisedToDoList + " then.");
-removeItemFromToDoList.alterList(toDoList);
-var revisedToDoList = changeToDoList.nextItem(toDoList);
+getToDoList.alterList(toDoList);
+getToDoList.nextItem(toDoList);
 var showRecipeCard = recipeBox.getRecipeCard("Kolaczki");
 console.log(showRecipeCard);
 estimateCookieAmount.countCookies(16);
-removeItemFromToDoList.alterList(toDoList);
-var revisedToDoList = changeToDoList.nextItem(toDoList);
+getToDoList.alterList(toDoList);
+getToDoList.nextItem(toDoList);
 childGiftList.nestedConditional(giftListNames);
 continueStory.progress();

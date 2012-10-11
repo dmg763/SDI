@@ -7,7 +7,7 @@
 var toDoList = {
     listItems: [
 	    {
-		    "listItem": "shop for and address Christmas cards",
+		    "listItem": "address Christmas cards",
 	    },
 	    {
 		    "listItem": "have the adult family members pull grab bag names"
