@@ -299,7 +299,7 @@ lastOne.nestedConditional();
 // Nested Loop
 
 var estimateCookieAmount = {
-    countCookies: function () {
+    countCookies: function (numberBaskets) {  // Number Argument
 	    var i = 0;
 	    var j = 0;
 	    for (i = 1; i <= 1; i += 1) {
@@ -307,6 +307,7 @@ var estimateCookieAmount = {
 		    }
 		    console.log("If I put three cookies in " + j + " basket(s).");
 		    console.log("I will go through " + i + " dozen cookies.");
+		    console.log("If I make " + numberBaskets + " baskets, I will need at least " + numberBaskets / j + " dozen cookies.");
 	    }
     }
 };
@@ -329,7 +330,7 @@ removeItemFromToDoList.alterList(toDoList);
 var revisedToDoList = changeToDoList.nextItem(toDoList);
 var showRecipeCard = recipeBox.getRecipeCard("Kolaczki");
 console.log(showRecipeCard);
-estimateCookieAmount.countCookies();
+estimateCookieAmount.countCookies(16);
 removeItemFromToDoList.alterList(toDoList);
 var revisedToDoList = changeToDoList.nextItem(toDoList);
 continueStory.progress();
