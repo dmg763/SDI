@@ -75,17 +75,6 @@ var getToDoList = {
 	    }
 	    return toDoList.listItems[0].listItem;  // Return String
     },
-    nextItem: function (toDoList) {  // Object Argument
-	    var anotherListItem;
-	    if (toDoList.listItems[0] !== null) {
-		    anotherListItem = true;
-		    console.log("The next item on my to-do list is to " + toDoList.listItems[0].listItem + ".");
-	    } else {
-		    anotherListItem = false;
-		    console.log("There are no more items on my to-do list.");
-	    }
-	    return toDoList.listItems[0].listItem;  // Return String
-    },
     alterList: function (toDoList) {  // Object Argument
 	    delete toDoList.listItems[0];
 	    var newToDoList = [];
@@ -97,6 +86,17 @@ var getToDoList = {
 	    toDoList.listItems = newToDoList;
 	    return newToDoList;  // Return Array
     },
+    nextItem: function (toDoList) {  // Object Argument
+	    var anotherListItem;
+	    if (toDoList.listItems[0] !== null) {
+		    anotherListItem = true;
+		    console.log("The next item on my to-do list is to " + toDoList.listItems[0].listItem + ".");
+	    } else {
+		    anotherListItem = false;
+		    console.log("There are no more items on my to-do list.");
+	    }
+	    return toDoList.listItems[0].listItem;  // Return String
+    }
 };
 
 // Method Function
@@ -110,7 +110,7 @@ var christmasCards = {
 		    console.log("I have addressed " + this.cardsPrepared + " " + holidayName + " cards.  I have " + this.totalCards + " cards remaining to sign and stamp today.");
 	    }
 	    return this.totalCards;  // Return Number
-    },
+    }
 };
 
 // Another Accessor Method
@@ -171,7 +171,7 @@ var estimateCookieAmount = {
 // Another Method Procedure
 
 var childGiftList = {
-    child1ListReady: true,  // Boolean Property
+    child1ListReady: true,  // Boolean Properties
     child2ListReady: true,
     child1: false,
     damiansGifts: {  // Object Properties
