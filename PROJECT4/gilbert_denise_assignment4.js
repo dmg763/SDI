@@ -19,11 +19,20 @@ var validatePhoneNumber = function (string) {
 var testPhoneNumberPattern = validatePhoneNumber("123-456-7890");
 console.log("String Follows Phone Number Pattern: " + testPhoneNumberPattern);
 
-    /*validateEmailAddress: function () {
+var validateEmailAddress = function (string) {
     // Does a string follow an aaa@bbb.ccc pattern like an email address?
-	    return {};
-    },
-    validateURL: function () {
+    var isEmailPattern;
+	if (((string.indexOf("@") !== -1) && ((string.lastIndexOf(".")) === (string.length - 4)))) {
+		isEmailPattern = true;
+	} else {
+		isEmailPattern = false;
+	}
+	return (isEmailPattern);
+};
+var testEmailPattern = validateEmailAddress("user@xyz.net");
+console.log("String Follows E-mail Pattern: " + testEmailPattern);
+
+    /*validateURL: function () {
     // Does it start with http: or https:?
 	    return {};
     },
