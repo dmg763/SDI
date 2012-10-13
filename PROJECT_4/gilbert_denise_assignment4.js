@@ -32,11 +32,22 @@ var validateEmailAddress = function (string) {
 var testEmailPattern = validateEmailAddress("user@xyz.net");
 console.log("String Follows E-mail Pattern: " + testEmailPattern);
 
-    /*validateURL: function () {
+var validateURL = function (string) {
     // Does it start with http: or https:?
-	    return {};
-    },
-    titleCaseString: function () {
+    var isURL,
+	    isHttp = /^http:/,
+	    isHttps = /^https:/;
+    if (((isHttp.test(string)) || (isHttps.test(string)))) {
+	    isURL = true;
+    } else {
+	    isURL = false;
+    }
+    return (isURL);
+};
+var testURL = validateURL("https:blahblahblah");
+console.log("String Follows URL Pattern: " + testURL);
+
+    /*titleCaseString: function () {
     // Split into words, then uppercase the first letter of each word.
 	    return {};
     },
