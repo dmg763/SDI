@@ -6,12 +6,20 @@
 
 // String Functions
 
-var myStringLibrary = {
-    validatePhoneNumber: function () {
+var validatePhoneNumber = function (string) {
     // Does a string follow a 123-456-7890 pattern like a phone number?
-	    return {};
-    },
-    validateEmailAddress: function () {
+	    var isPhoneNumberPattern;
+	    if (((string.indexOf("-") === 3) && ((string.lastIndexOf("-")) === 7)) && (string.length === 12)) {
+		    isPhoneNumberPattern = true;
+	    } else {
+		    isPhoneNumberPattern = false;
+	    }
+	    return (isPhoneNumberPattern);
+    };
+var testPhoneNumberPattern = validatePhoneNumber("123-456-7890");
+console.log("String Follows Phone Number Pattern: " + testPhoneNumberPattern);
+
+    /*validateEmailAddress: function () {
     // Does a string follow an aaa@bbb.ccc pattern like an email address?
 	    return {};
     },
@@ -65,4 +73,4 @@ var myArrayLibrary = {
     // Given an array of objects and the name of a key, return the array sorted by the value of that key in each of the objects: "a" + [{a:2},{a:3},{a:1}] changes to: [{a:1},{a:2},{a:3}].
 	    return {};
     }
-};
+};*/
