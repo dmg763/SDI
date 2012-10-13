@@ -44,27 +44,34 @@ var validateURL = function (string) {
     }
     return (isURL);
 };
-var testURL = validateURL("https:blahblahblah");
-console.log("String Follows URL Pattern: " + testURL);
+
+// NEED TO COMPLETE THE UPPERCASE FIRST LETTER OF EACH WORD FUNCTION
 
     /*titleCaseString: function () {
     // Split into words, then uppercase the first letter of each word.
 	    return {};
-    },
-    changeSeparator: function () {
-    // Given a string that is a list of things separated by a given string, as well as another string separator, return a string with the first separator changed to the second: "a,b,c" + "," + "/" changes to: "a/b/c".
-	    return {};
     }
+};*/
+
+var testURL = validateURL("https:blahblahblah");
+console.log("String Follows URL Pattern: " + testURL);
+
+var changeSeparator = function (string) {
+    // Given a string that is a list of things separated by a given string, as well as another string separator, return a string with the first separator changed to the second: "a,b,c" + "," + "/" changes to: "a/b/c".
+    var replaceSeparator = string.replace(/,/g, "/");
+    console.log("My new string will look like this: " + replaceSeparator + ".");
 };
+changeSeparator("a,b,c");
 
 // Number Functions
 
-var myNumberLibrary = {
-    formatNumberDecimalPlaces: function () {
+/*var formatNumberDecimalPlaces = function (number) {
     // Format a number to use a specific number of decimal places, as for money: 2.1 changes to: 2.10
-	    return {};
-    },
-    fuzzyMatch: function () {
+    var decimalPlaces = number.toFixed(2);
+    console.log("My new number will appear as " + decimalPlaces + ".");
+};*/
+    
+    /*fuzzyMatch: function () {
     // Fuzzy-match a number: is the number above or below a number within a certain percent?
 	    return {};
     },
