@@ -35,8 +35,8 @@ console.log("String Follows E-mail Pattern: " + testEmailPattern);
 var validateURL = function (string) {
     // Does it start with http: or https:?
     var isURL,
-	    isHttp = /^http:/,
-	    isHttps = /^https:/;
+	    isHttp = /^http:\/\//,
+	    isHttps = /^https:\/\//;
     if (((isHttp.test(string)) || (isHttps.test(string)))) {
 	    isURL = true;
     } else {
@@ -44,6 +44,9 @@ var validateURL = function (string) {
     }
     return (isURL);
 };
+
+var testURL = validateURL("https://blahblahblah");
+console.log("String Follows URL Pattern: " + testURL);
 
 // NEED TO COMPLETE THE UPPERCASE FIRST LETTER OF EACH WORD FUNCTION
 
@@ -53,26 +56,23 @@ var validateURL = function (string) {
     }
 };*/
 
-var testURL = validateURL("https:blahblahblah");
-console.log("String Follows URL Pattern: " + testURL);
-
 var changeSeparator = function (string) {
     // Given a string that is a list of things separated by a given string, as well as another string separator, return a string with the first separator changed to the second: "a,b,c" + "," + "/" changes to: "a/b/c".
     var replaceSeparator = string.replace(/,/g, "/");
-    console.log("My new string will look like this: " + replaceSeparator + ".");
     return replaceSeparator;
 };
-changeSeparator("a,b,c");
+var testChangeSeparator = changeSeparator("a,b,c");
+console.log("My new string will look like this: " + testChangeSeparator + ".");
 
 // Number Functions
 
 var formatNumberDecimalPlaces = function (number) {
     // Format a number to use a specific number of decimal places, as for money: 2.1 changes to: 2.10
     var decimalPlaces = number.toFixed(2);
-    console.log("My new number will appear as " + decimalPlaces + ".");
     return decimalPlaces;
 };
-formatNumberDecimalPlaces(1234.5);
+var testFormatNumberDecimalPlaces = formatNumberDecimalPlaces(1234.5);
+console.log("My new number will appear as " + testFormatNumberDecimalPlaces + ".");
     
     /*fuzzyMatch: function () {
     // Fuzzy-match a number: is the number above or below a number within a certain percent?
