@@ -21,6 +21,7 @@ console.log("String Follows Phone Number Pattern: " + testPhoneNumberPattern);
 
 var validateEmailAddress = function (string) {
     // Does a string follow an aaa@bbb.ccc pattern like an email address?
+    //var noWhiteSpace = /\s/;
     var isEmailPattern;
 	if (((string.indexOf("@") !== -1) && ((string.lastIndexOf(".")) === (string.length - 4)))) {
 		isEmailPattern = true;
@@ -66,12 +67,12 @@ console.log("My new string will look like this: " + testChangeSeparator + ".");
 
 // Number Functions
 
-var formatNumberDecimalPlaces = function (number) {
+var formatNumberDecimalPlaces = function (number, decimalPlaces) {
     // Format a number to use a specific number of decimal places, as for money: 2.1 changes to: 2.10
-    var decimalPlaces = number.toFixed(2);
-    return decimalPlaces;
+    var alterDecimalPlaces = number.toFixed(decimalPlaces);
+    return alterDecimalPlaces;
 };
-var testFormatNumberDecimalPlaces = formatNumberDecimalPlaces(1234.5);
+var testFormatNumberDecimalPlaces = formatNumberDecimalPlaces(1234.5, 2);
 console.log("My new number will appear as " + testFormatNumberDecimalPlaces + ".");
     
     /*fuzzyMatch: function () {
