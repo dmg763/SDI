@@ -57,12 +57,12 @@ console.log("String Follows URL Pattern: " + testURL);
     }
 };*/
 
-var changeSeparator = function (string) {
+var changeSeparator = function (string, separator) {
     // Given a string that is a list of things separated by a given string, as well as another string separator, return a string with the first separator changed to the second: "a,b,c" + "," + "/" changes to: "a/b/c".
-    var replaceSeparator = string.replace(/,/g, "/");
+    var replaceSeparator = string.replace(/,/g, separator);
     return replaceSeparator;
 };
-var testChangeSeparator = changeSeparator("a,b,c");
+var testChangeSeparator = changeSeparator("a,b,c", "/");
 console.log("My new string will look like this: " + testChangeSeparator + ".");
 
 // Number Functions
