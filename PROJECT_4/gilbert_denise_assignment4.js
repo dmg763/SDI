@@ -21,9 +21,9 @@ console.log("String Follows Phone Number Pattern: " + testPhoneNumberPattern);
 
 var validateEmailAddress = function (string) {
     // Does a string follow an aaa@bbb.ccc pattern like an email address?
-    //var noWhiteSpace = /\s/;
+    //var noWhiteSpace = /\s+/;
     var isEmailPattern;
-	if (((string.indexOf("@") !== -1) && ((string.lastIndexOf(".")) === (string.length - 4)))) {
+	if (((string.indexOf("@") !== -1) && (/\s+/g.test(string) === false) && ((string.lastIndexOf(".")) === (string.length - 4)))) {
 		isEmailPattern = true;
 	} else {
 		isEmailPattern = false;
