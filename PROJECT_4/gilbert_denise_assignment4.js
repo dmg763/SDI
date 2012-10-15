@@ -106,16 +106,39 @@ console.log("The Number Value of the String: " + testStringNumberToActualValue +
 
 // Array Functions
 
-/*var myArrayLibrary = {
-    smallestValueGreaterThanGivenNumber: function () {
+var smallestValueGreaterThanGivenNumber = function (array, number) {  // STILL NEED TO MAKE THIS WORK PROPERLY
     // Find the smallest value in an array that is greater than a given number.
-	    return {};
-    },
-    totalValueOfNumbersInArray: function () {
+    var greaterThanGivenNumber,
+	    smallestValue;
+    for (var i = 0; i < array.length; i += 1) {
+	    if (array[i] > number) {
+			greaterThanGivenNumber = array[i],
+			smallestValue = Math.min(greaterThanGivenNumber);
+		    console.log(smallestValue);
+		}
+	}
+};
+
+var testSmallestValueGreaterThanGivenNumber = smallestValueGreaterThanGivenNumber([10, 20, 26, 30], 25);
+//console.log("The Smallest Value in the Array: " + testSmallestValueGreaterThanGivenNumber + ".");
+
+var totalValueOfNumbersInArray = function (array) {
     // Find the total value of just the numbers in an array, even if some of the items are not numbers.
-	    return {};
-    },
-    sortArrayObjectsByKey: function () {
+    var totalValue = 0,
+	    grabNumbers;
+    for (var i = 0; i < array.length; i += 1) {
+	    grabNumbers = parseFloat(array[i]);
+	    if (!isNaN(grabNumbers)) {
+		    totalValue = totalValue + grabNumbers;
+	    }
+    }
+    return totalValue;
+};
+    
+var testTotalValueOfNumbersInArray = totalValueOfNumbersInArray(["A", 20, "B", 30, "test", 450]);
+console.log("The total value of this array is " + testTotalValueOfNumbersInArray + ".");
+
+    /*sortArrayObjectsByKey: function () {
     // Given an array of objects and the name of a key, return the array sorted by the value of that key in each of the objects: "a" + [{a:2},{a:3},{a:1}] changes to: [{a:1},{a:2},{a:3}].
 	    return {};
     }
