@@ -38,7 +38,7 @@ var validateURL = function (string) {
     var isURL,
 	    isHttp = /^http:\/\//,
 	    isHttps = /^https:\/\//;
-    if (((isHttp.test(string)) || (isHttps.test(string)))) {
+    if ((((isHttp.test(string)) || (isHttps.test(string)))) && (/\s+/g.test(string) === false)) {
 	    isURL = true;
     } else {
 	    isURL = false;
