@@ -74,16 +74,28 @@ var formatNumberDecimalPlaces = function (number, decimalPlaces) {
 };
 var testFormatNumberDecimalPlaces = formatNumberDecimalPlaces(1234.5, 2);
 console.log("My new number will appear as " + testFormatNumberDecimalPlaces + ".");
-    
-    /*fuzzyMatch: function () {
+
+/*fuzzyMatch: function () {
     // Fuzzy-match a number: is the number above or below a number within a certain percent?
 	    return {};
-    },
-    differenceBetweenTwoDates: function () {
-    // Find the number of hours or days difference between two dates.
-	    return {};
-    },
-    stringNumberToActualValue: function () {
+    },*/
+
+var daysDifference = function (date2, date1) {
+    // Find the number of hours or days difference between two dates.  Note:  To be more precise the hours, minutes, and seconds can be added to the dates in the form of 00:01:00.
+	    var futureDate = new Date(date2),
+		    mostRecentDate = new Date(date1),
+		    dayDifference = (futureDate.getTime() - mostRecentDate.getTime()),
+		    seconds = Math.floor(dayDifference / 1000),
+		    minutes = Math.floor(seconds / 60),
+		    hours = Math.floor(minutes / 60),
+		    days = Math.floor(hours / 24);
+		return days;
+    };
+
+var testDifferenceDates = daysDifference("December 25, 2012", "October 15, 2012");
+console.log("Difference Between Two Dates: " + testDifferenceDates + " days.");
+
+    /*stringNumberToActualValue: function () {
     // Given a string version of a number such as "42", return the value as an actual Number, such as 42.
 	    return {};
     }
