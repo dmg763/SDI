@@ -95,15 +95,18 @@ var daysDifference = function (date2, date1) {
 var testDifferenceDates = daysDifference("December 25, 2012", "October 15, 2012");
 console.log("Difference Between Two Dates: " + testDifferenceDates + " days.");
 
-    /*stringNumberToActualValue: function () {
+var stringNumberToActualValue = function (stringNumber) {
     // Given a string version of a number such as "42", return the value as an actual Number, such as 42.
-	    return {};
-    }
+    var numberValue = Number(stringNumber);
+	return numberValue;
 };
+
+var testStringNumberToActualValue = stringNumberToActualValue("42");
+console.log("The Number Value of the String: " + testStringNumberToActualValue + ".");
 
 // Array Functions
 
-var myArrayLibrary = {
+/*var myArrayLibrary = {
     smallestValueGreaterThanGivenNumber: function () {
     // Find the smallest value in an array that is greater than a given number.
 	    return {};
