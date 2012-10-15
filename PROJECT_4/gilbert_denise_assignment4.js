@@ -21,7 +21,6 @@ console.log("String Follows Phone Number Pattern: " + testPhoneNumberPattern);
 
 var validateEmailAddress = function (string) {
     // Does a string follow an aaa@bbb.ccc pattern like an email address?
-    //var noWhiteSpace = /\s+/;
     var isEmailPattern;
 	if (((string.indexOf("@") !== -1) && (/\s+/g.test(string) === false) && ((string.lastIndexOf(".")) === (string.length - 4)))) {
 		isEmailPattern = true;
@@ -49,13 +48,21 @@ var validateURL = function (string) {
 var testURL = validateURL("https://blahblahblah");
 console.log("String Follows URL Pattern: " + testURL);
 
-// NEED TO COMPLETE THE UPPERCASE FIRST LETTER OF EACH WORD FUNCTION
-
-    /*titleCaseString: function () {
+var titleCaseString = function (string) {  // // STILL NEED TO MAKE THIS WORK PROPERLY
     // Split into words, then uppercase the first letter of each word.
-	    return {};
+    var splitString = string.split(" "),
+	    newString,
+	    i;
+    console.log(splitString);
+    for (i = 0; i < splitString.length; i += 1) {
+	    newString = splitString[i][0].toUpperCase();
+	    console.log(newString);
     }
-};*/
+    return newString;
+};
+
+var testTitleCaseString = titleCaseString("my name is denise");
+console.log("My new string will appear as: " + testTitleCaseString);
 
 var changeSeparator = function (string, separator) {
     // Given a string that is a list of things separated by a given string, as well as another string separator, return a string with the first separator changed to the second: "a,b,c" + "," + "/" changes to: "a/b/c".
@@ -102,6 +109,7 @@ var stringNumberToActualValue = function (stringNumber) {
 };
 
 var testStringNumberToActualValue = stringNumberToActualValue("42");
+console.log(testStringNumberToActualValue);
 console.log("The Number Value of the String: " + testStringNumberToActualValue + ".");
 
 // Array Functions
@@ -109,24 +117,25 @@ console.log("The Number Value of the String: " + testStringNumberToActualValue +
 var smallestValueGreaterThanGivenNumber = function (array, number) {  // STILL NEED TO MAKE THIS WORK PROPERLY
     // Find the smallest value in an array that is greater than a given number.
     var greaterThanGivenNumber,
-	    smallestValue;
-    for (var i = 0; i < array.length; i += 1) {
+	    i;
+    for (i = 0; i < array.length; i += 1) {
 	    if (array[i] > number) {
-			greaterThanGivenNumber = array[i],
-			smallestValue = Math.min(greaterThanGivenNumber);
-		    console.log(smallestValue);
+		    greaterThanGivenNumber = (array[i]);
+		    console.log(greaterThanGivenNumber);
 		}
 	}
+	return greaterThanGivenNumber;
 };
 
-var testSmallestValueGreaterThanGivenNumber = smallestValueGreaterThanGivenNumber([10, 20, 26, 30], 25);
-//console.log("The Smallest Value in the Array: " + testSmallestValueGreaterThanGivenNumber + ".");
+var testSmallestValueGreaterThanGivenNumber = smallestValueGreaterThanGivenNumber([10, 20, 26, 30], 11);
+console.log("The Smallest Value in the Array: " + testSmallestValueGreaterThanGivenNumber + ".");
 
 var totalValueOfNumbersInArray = function (array) {
     // Find the total value of just the numbers in an array, even if some of the items are not numbers.
     var totalValue = 0,
-	    grabNumbers;
-    for (var i = 0; i < array.length; i += 1) {
+	    grabNumbers,
+	    i;
+    for (i = 0; i < array.length; i += 1) {
 	    grabNumbers = parseFloat(array[i]);
 	    if (!isNaN(grabNumbers)) {
 		    totalValue = totalValue + grabNumbers;
@@ -134,12 +143,21 @@ var totalValueOfNumbersInArray = function (array) {
     }
     return totalValue;
 };
-    
-var testTotalValueOfNumbersInArray = totalValueOfNumbersInArray(["A", 20, "B", 30, "test", 450]);
+
+var testTotalValueOfNumbersInArray = totalValueOfNumbersInArray(["A", 20, true, "B", 30, {a: 3}, "test", 450.5, -100]);
 console.log("The total value of this array is " + testTotalValueOfNumbersInArray + ".");
 
-    /*sortArrayObjectsByKey: function () {
+var sortArrayObjectsByKey = function (array, keyValue) {  // STILL NEED TO MAKE THIS WORK PROPERLY
     // Given an array of objects and the name of a key, return the array sorted by the value of that key in each of the objects: "a" + [{a:2},{a:3},{a:1}] changes to: [{a:1},{a:2},{a:3}].
-	    return {};
+    var myNewArray,
+	    i;
+    for (i = 0; i < array.length; i += 1) {
+	    if (array[i][0] === keyValue) {
+		    myNewArray = array.sort();
+	    }
     }
-};*/
+    return myNewArray;
+};
+
+var testSortArrayObjectsByKey = sortArrayObjectsByKey([{a: 2}, {a: 3}, {a: 1}], "a");
+console.log("The new sorted array will appear as: " + testSortArrayObjectsByKey + ".");
