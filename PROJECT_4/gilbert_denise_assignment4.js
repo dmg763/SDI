@@ -17,7 +17,7 @@ var validatePhoneNumber = function (string) {
 	    return (isPhoneNumberPattern);
     };
 var phoneNumber = validatePhoneNumber("123-456-7890");
-console.log("String Follows Phone Number Pattern: " + phoneNumber);
+console.log(phoneNumber);
 
 var validateEmail = function (string) {
     // Does a string follow an aaa@bbb.ccc pattern like an email address?
@@ -30,7 +30,7 @@ var validateEmail = function (string) {
 	return (isEmailPattern);
 };
 var email = validateEmail("user@xyz.net");
-console.log("String Follows E-mail Pattern: " + email);
+console.log(email);
 
 var validateURL = function (string) {
     // Does it start with http: or https:?
@@ -46,7 +46,7 @@ var validateURL = function (string) {
 };
 
 var testURL = validateURL("https://blahblahblah");
-console.log("String Follows URL Pattern: " + testURL);
+console.log(testURL);
 
 var titleCaseString = function (string) {  // STILL NEED TO MAKE THIS WORK PROPERLY
     // Split into words, then uppercase the first letter of each word.
@@ -70,17 +70,17 @@ var changeSeparator = function (string, separator) {
     return replaceSeparator;
 };
 var alterSeparator = changeSeparator("a,b,c", "/");
-console.log(alterSeparator + " = String with New Separator");
+console.log(alterSeparator);
 
 // Number Functions
 
 var formatDecimalPlaces = function (number, decimalPlaces) {
     // Format a number to use a specific number of decimal places, as for money: 2.1 changes to: 2.10
     var alterDecimalPlaces = number.toFixed(decimalPlaces);
-    return alterDecimalPlaces;
+    return Number(alterDecimalPlaces);
 };
-var testFormatDecimalPlaces = formatDecimalPlaces(1234.5, 2);
-console.log(testFormatDecimalPlaces + " = Reformatted Decimal Number");
+var testFormatDecimalPlaces = formatDecimalPlaces(1.2345, 3);
+console.log(testFormatDecimalPlaces);
 
 /*fuzzyMatch: function () {
     // Fuzzy-match a number: is the number above or below a number within a certain percent?
@@ -100,7 +100,7 @@ var daysDifference = function (date2, date1) {
     };
 
 var testDaysDifference = daysDifference("December 25, 2012", "October 15, 2012");
-console.log(testDaysDifference + " = Days Difference Between Two Dates");
+console.log(testDaysDifference);
 
 var actualValue = function (stringNumber) {
     // Given a string version of a number such as "42", return the value as an actual Number, such as 42.
@@ -109,25 +109,27 @@ var actualValue = function (stringNumber) {
 };
 
 var testActualValue = actualValue("42");
-console.log(testActualValue + " = Actual Number Value");
+console.log(testActualValue);
 
 // Array Functions
 
-var smallestValueGreater = function (array, number) {  // STILL NEED TO MAKE THIS WORK PROPERLY
+var smallestValueGreater = function (array, number) {
     // Find the smallest value in an array that is greater than a given number.
-    var greaterThanGivenNumber,
+    var numbersFound = [],
+	    greaterThanGivenNumber,
 	    i;
     for (i = 0; i < array.length; i += 1) {
 	    if (array[i] > number) {
 		    greaterThanGivenNumber = (array[i]);
-		    console.log(greaterThanGivenNumber);
+		    numbersFound.push(array[i]);
+		    numbersFound.sort();
 		}
 	}
-	return greaterThanGivenNumber;
+	return numbersFound[0];
 };
 
-var testSmallestValueGreater = smallestValueGreater([10, 20, 26, 30], 11);
-console.log("The Smallest Value in the Array: " + testSmallestValueGreater + ".");
+var testSmallestValueGreater = smallestValueGreater([50, 10, 11.5, 45, 8, 26, 30, 19], 11);
+console.log(testSmallestValueGreater);
 
 var totalValueOfArray = function (array) {
     // Find the total value of just the numbers in an array, even if some of the items are not numbers.
@@ -148,7 +150,6 @@ var totalValueOfArray = function (array) {
 		    array.splice(i, 1);
 	    }
 	    grabNumbers = parseFloat(array[i]);
-	    console.log(grabNumbers);
 	    if (!isNaN(grabNumbers)) {
 		    totalValue = totalValue + grabNumbers;
 	    }
@@ -157,7 +158,7 @@ var totalValueOfArray = function (array) {
 };
 
 var testTotalValueOfArray = totalValueOfArray(["A", 20, true, "B", 30, {a: 3}, "test", 450.5, "346", -100]);
-console.log("The total value of this array is " + testTotalValueOfArray + ".");
+console.log(testTotalValueOfArray);
 
 var sortObjectsByKey = function (array, keyValue) {  // STILL NEED TO MAKE THIS WORK PROPERLY
     // Given an array of objects and the name of a key, return the array sorted by the value of that key in each of the objects: "a" + [{a:2},{a:3},{a:1}] changes to: [{a:1},{a:2},{a:3}].
