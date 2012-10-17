@@ -70,11 +70,20 @@ var myLibrary = function () {
 
 //  FUZZY MATCH (Is the number above or below a number within a certain percent?)
 
-    var fuzzyMatch = function (firstNumber, secondNumber) {
-	    var difference = firstNumber - secondNumber,
-		    percentLarger = difference / secondNumber,
+    var fuzzyMatch = function (firstNumber, secondNumber, percentageToTest) {
+	    var difference,
+		    percentLarger,
+		    percentage;
+		if (firstNumber > secondNumber) {
+		    difference = firstNumber - secondNumber;
+		    percentLarger = difference / secondNumber;
 		    percentage = percentLarger * 100;
-	    return percentage;
+		    if (percentage === percentageToTest) {
+			    return true;
+		    } else {
+			    return false;
+		    }
+	    }
     };
 
 //  DIFFERENCE BETWEEN TWO DATES (To be more precise the hours, minutes, and seconds can be added to the dates in the form of 00:01:00.)
@@ -179,7 +188,7 @@ console.log("Is this a valid URL? " + newLib.validateURL("https://blahblahblah")
 console.log("My new string will appear as: " + newLib.titleCaseString("my name is denise"));
 console.log("My string with the new separator will appear as: " + newLib.changeSeparator("a,b,c", "/"));
 console.log("My reformatted number will appear as: " + newLib.formatDecimalPlaces(1.2345, 3));
-console.log("The difference in the two numbers is: " + newLib.fuzzyMatch(10, 8) + "%");
+console.log("The difference in the two numbers is within the percentage: " + newLib.fuzzyMatch(10, 8, 25));
 console.log("The difference between the two dates is: " + newLib.daysDifference("December 25, 2012", "October 17, 2012") + " days.");
 console.log("The actual number value of this string number is: " + newLib.actualValue("42"));
 console.log("The smallest value greater than the given number in this array is: " + newLib.smallestValueGreater([50, 10, 11.5, 45, 8, 26, 30, 19], 11));
