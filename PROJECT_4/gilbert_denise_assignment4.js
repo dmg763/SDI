@@ -46,10 +46,8 @@ var myLibrary = function () {
 	    var splitString = string.split(" "),
 		    newString,
 		    i;
-	    console.log(splitString);
 	    for (i = 0; i < splitString.length; i += 1) {
 		    newString = splitString[i][0].toUpperCase();
-		    console.log(newString);
 	    }
 	    return newString;
     };
@@ -71,9 +69,9 @@ var myLibrary = function () {
 
 //  FUZZY MATCH (Is the number above or below a number within a certain percent?)
 
-    var fuzzyMatch = function (number_1, number_2, percentageToTest) {
-	    var difference = number_1 - number_2,
-		    percentDifference = difference / number_2,
+    var fuzzyMatch = function (firstNumber, secondNumber, percentageToTest) {
+	    var difference = firstNumber - secondNumber,
+		    percentDifference = difference / secondNumber,
 		    percentage = percentDifference * 100;
 	    if ((percentage === percentageToTest) || (percentage === -(percentageToTest))) {
 		    return true;
@@ -152,10 +150,9 @@ var myLibrary = function () {
 	    var sortedArray,
 		    i;
 	    for (i = 0; i < array.length; i += 1) {
-		    if (array[i][0] < array[i][1]) {
-			    console.log(array[i][0]);
+		    if (array[i][0] === key) {
+			    sortedArray = array.sort();
 		    }
-		    sortedArray = array.sort();
 	    }
 	    return sortedArray;
     };
