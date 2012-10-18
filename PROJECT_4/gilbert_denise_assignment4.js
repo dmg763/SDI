@@ -19,8 +19,8 @@ var myLibrary = function () {
 //  VALIDATE E-MAIL
 
     var validateEmail = function (string) {
-    // /\s+/g tests for any white space in the string.
-	    if (((string.indexOf("@") !== -1) && (/\s+/g.test(string) === false) && ((string.lastIndexOf(".")) === (string.length - 4)))) {
+	    var isWhiteSpace = /\s+/g;  // Tests for any white space in the string.
+	    if (((string.indexOf("@") !== -1) && (isWhiteSpace.test(string) === false) && ((string.lastIndexOf(".")) === (string.length - 4)))) {
 		    return true;
 	    } else {
 		    return false;
@@ -31,8 +31,9 @@ var myLibrary = function () {
 
     var validateURL = function (string) {
 	    var isHttp = /^http:\/\//,  // Match http:\\ and https:\\ starting at the beginning of the string.
-		    isHttps = /^https:\/\//;
-	    if ((((isHttp.test(string)) || (isHttps.test(string)))) && (/\s+/g.test(string) === false)) {
+		    isHttps = /^https:\/\//,
+		    isWhiteSpace = /\s+/g;  // Tests for any white space in the string.
+	    if ((((isHttp.test(string)) || (isHttps.test(string)))) && (isWhiteSpace.test(string) === false)) {
 		    return true;
 	    } else {
 		    return false;
@@ -55,9 +56,9 @@ var myLibrary = function () {
 
 //  CHANGE SEPARATOR (Return a string with the first separator changed to the second.)
 
-    var changeSeparator = function (string, separator) {
-    // /,/g Catches all of the commas in the string that need to be replaced.
-	    var replaceSeparator = string.replace(/,/g, separator);
+    var changeSeparator = function (string, newSeparator) {
+	    var replaceThis = /,/g,  // Separator to be replaced.
+		    replaceSeparator = string.replace(replaceThis, newSeparator);
 	    return replaceSeparator;
     };
 
@@ -70,19 +71,14 @@ var myLibrary = function () {
 
 //  FUZZY MATCH (Is the number above or below a number within a certain percent?)
 
-    var fuzzyMatch = function (firstNumber, secondNumber, percentageToTest) {
-	    var difference,
-		    percentLarger,
-		    percentage;
-		if (firstNumber > secondNumber) {
-		    difference = firstNumber - secondNumber;
-		    percentLarger = difference / secondNumber;
-		    percentage = percentLarger * 100;
-		    if (percentage === percentageToTest) {
-			    return true;
-		    } else {
-			    return false;
-		    }
+    var fuzzyMatch = function (number_1, number_2, percentageToTest) {
+	    var difference = number_1 - number_2,
+		    percentDifference = difference / number_2,
+		    percentage = percentDifference * 100;
+	    if ((percentage === percentageToTest) || (percentage === -(percentageToTest))) {
+		    return true;
+	    } else {
+		    return false;
 	    }
     };
 
@@ -188,7 +184,7 @@ console.log("Is this a valid URL? " + newLib.validateURL("https://blahblahblah")
 console.log("My new string will appear as: " + newLib.titleCaseString("my name is denise"));
 console.log("My string with the new separator will appear as: " + newLib.changeSeparator("a,b,c", "/"));
 console.log("My reformatted number will appear as: " + newLib.formatDecimalPlaces(1.2345, 3));
-console.log("The difference in the two numbers is within the percentage: " + newLib.fuzzyMatch(10, 8, 25));
+console.log("The difference in the two numbers is within the percentage given: " + newLib.fuzzyMatch(10, 8, 25));
 console.log("The difference between the two dates is: " + newLib.daysDifference("December 25, 2012", "October 17, 2012") + " days.");
 console.log("The actual number value of this string number is: " + newLib.actualValue("42"));
 console.log("The smallest value greater than the given number in this array is: " + newLib.smallestValueGreater([50, 10, 11.5, 45, 8, 26, 30, 19], 11));
